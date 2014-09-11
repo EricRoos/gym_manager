@@ -8,4 +8,7 @@
 
 .row
   .small-6.small-centered.columns.text-center
-    = link_to 'Back', members_path
+    - if @gym
+      = link_to 'Back', gym_members_path(@gym)
+    -else
+      = link_to 'Back', members_path

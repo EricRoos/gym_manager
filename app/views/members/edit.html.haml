@@ -1,7 +1,11 @@
-%h1 Editing member
+.row
+  .small-6.small-centered.columns.text-center
+    %h1 Editing member
 
 = render 'form'
 
-= link_to 'Show', gym_member_path(@member.gym,@member)
-\|
-= link_to 'Back', gym_members_path(@member.gym)
+.row
+  .small-6.small-centered.columns.text-center
+    = link_to 'Show', gym_member_path(@member.gym,@member)
+    \|
+    = link_to 'Back', gym_members_path(@member.gym)
