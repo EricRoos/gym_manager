@@ -6,7 +6,6 @@
     %tr
       %th Name
       %th.show-for-medium-up Email
-      %th Gym
       %th
       %th.show-for-medium-up
       %th
@@ -15,7 +14,6 @@
       %tr
         %td= member.name
         %td.show-for-medium-up= member.email
-        %td= link_to member.gym.name, gym_path(member.gym)
         %td= link_to 'Show', gym_member_path(member.gym,member)
         %td.show-for-medium-up= link_to 'Edit', edit_gym_member_path(member.gym,member)
         %td= link_to 'Destroy', gym_member_path(member.gym,member), :method => :delete, :data => { :confirm => 'Are you sure?' }
