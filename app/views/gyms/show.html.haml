@@ -1,0 +1,14 @@
+.row
+  .small-12.columns
+    %p#notice= notice
+
+.row
+  .small-12.columns
+    %p
+      %b Name:
+      = @gym.name
+.row
+  .small-12.columns
+    = link_to 'Edit', edit_gym_path(@gym)
+    \|
+    = link_to 'Back', gyms_path
