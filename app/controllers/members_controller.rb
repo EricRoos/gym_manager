@@ -4,7 +4,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @gym = Gym.find params[:gym_id]
+    @gym = Gym.includes(:members).find(params[:gym_id])
     @members = @gym.members
   end
 
@@ -23,12 +23,17 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
+    @member = Member.includes(:gym).find(params[:id])
+    if @member.gym
+      @gym = @member.gym
+    end
   end
 
   # POST /members
   # POST /members.json
   def create
     @member = Member.new(member_params)
+    @gym = @member.gym
     respond_to do |format|
       if @member.save
         @gym = @member.gym
@@ -46,7 +51,8 @@ class MembersController < ApplicationController
   def update
     respond_to do |format|
       if @member.update(member_params)
-        format.html { redirect_to @member, notice: 'Member was successfully updated.' }
+        @gym = @member.gym
+        format.html { redirect_to gym_members_path(@gym,@member), notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
       else
         format.html { render :edit }

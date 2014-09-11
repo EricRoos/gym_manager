@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :members, :only => [:new,:create]
+  resources :members, :only => [:new,:create,:edit]
 
   resources :gyms do
     resources :members
