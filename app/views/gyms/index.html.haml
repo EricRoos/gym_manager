@@ -11,7 +11,7 @@
     - @gyms.each do |gym|
       %tr
         %td= gym.name
-        %td= link_to 'Show Members', gym
+        %td= link_to 'Show Members', gym_members_path(gym)
         %td= link_to 'Edit', edit_gym_path(gym)
         %td= link_to 'Destroy', gym, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

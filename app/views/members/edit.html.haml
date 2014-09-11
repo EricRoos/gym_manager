@@ -1,0 +1,7 @@
+%h1 Editing member
+
+= render 'form'
+
+= link_to 'Show', gym_member_path(@member.gym,@member)
+\|
+= link_to 'Back', gym_members_path(@member.gym)

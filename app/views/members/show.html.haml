@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @member.name
+%p
+  %b Email:
+  = @member.email
+%p
+  %b Gym:
+  = link_to @member.gym.name, gym_path(@member.gym)
+
+= link_to 'Edit', edit_gym_member_path(@member.gym,@member)
+\|
+= link_to 'Back', gym_members_path

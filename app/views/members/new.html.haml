@@ -1,0 +1,11 @@
+.row
+  .small-6.small-centered.columns.text-center
+    %h1 New member
+    - if @gym
+      %h2= "For #{@gym.name}"
+
+= render 'form'
+
+.row
+  .small-6.small-centered.columns.text-center
+    = link_to 'Back', members_path

@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911053456) do
+ActiveRecord::Schema.define(version: 20140911055833) do
 
   create_table "gyms", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "members", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "gym_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members", ["gym_id"], name: "index_members_on_gym_id", using: :btree
 
 end

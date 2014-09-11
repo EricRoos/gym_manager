@@ -1,0 +1,26 @@
+.row
+  %h1= "Listing members for #{@gym.name}"
+
+.row
+  %table
+    %tr
+      %th Name
+      %th Email
+      %th Gym
+      %th
+      %th
+      %th
+
+    - @members.each do |member|
+      %tr
+        %td= member.name
+        %td= member.email
+        %td= link_to member.gym.name, gym_path(member.gym)
+        %td= link_to 'Show', gym_member_path(member.gym,member)
+        %td= link_to 'Edit', edit_gym_member_path(member.gym,member)
+        %td= link_to 'Destroy', gym_member_path(member.gym,member), :method => :delete, :data => { :confirm => 'Are you sure?' }
+.row
+  - if @gym
+    = link_to 'New Member', new_gym_member_path(@gym),:class => "button"
+  - else
+    = link_to 'New Member', new_member_path,:class => "button"

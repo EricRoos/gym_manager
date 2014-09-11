@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :gyms
+  resources :members, :only => [:new,:create]
+
+  resources :gyms do
+    resources :members
+  end
 
   get 'home/index'
 
