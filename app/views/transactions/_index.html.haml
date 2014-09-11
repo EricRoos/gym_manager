@@ -1,0 +1,15 @@
+%table
+  %tr
+    %th Balance
+    %th Workouts
+    %th
+    %th
+    %th
+
+  - @transactions.each do |transaction|
+    %tr
+      %td= transaction.balance
+      %td= "#{transaction.workouts_used} / #{transaction.workouts}"
+      %td= link_to 'Show', gym_member_transaction_path(@gym,@member,transaction)
+      %td= link_to 'Edit', edit_gym_member_transaction_path(@gym,@member,transaction)
+      %td= link_to 'Destroy', gym_member_transaction_path(@gym,@member,transaction), :method => :delete, :data => { :confirm => 'Are you sure?' }

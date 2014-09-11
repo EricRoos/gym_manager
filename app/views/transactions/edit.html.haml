@@ -1,0 +1,7 @@
+%h1 Editing transaction
+
+= render 'form'
+
+= link_to 'Show', gym_member_transaction_path(@gym,@member,@transaction)
+\|
+= link_to 'Back', gym_members_path(@gym,@member)

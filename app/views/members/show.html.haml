@@ -8,8 +8,9 @@
   Gym:
   = link_to @member.gym.name, gym_path(@member.gym)
 .row
-  %h5 Transactions
-.row
   = link_to 'Edit', edit_gym_member_path(@member.gym,@member)
   \|
   = link_to 'Back', gym_members_path
+.row
+  = link_to "New Transaction", new_gym_member_transaction_path(@gym,@member)
+  = render 'transactions/index'

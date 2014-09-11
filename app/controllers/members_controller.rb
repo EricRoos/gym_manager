@@ -11,6 +11,8 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
+    @gym = @member.gym
+    @transactions = @member.transactions
   end
 
   # GET /members/new

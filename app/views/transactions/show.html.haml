@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Member:
+  = @transaction.member
+%p
+  %b Balance:
+  = @transaction.balance
+%p
+  %b Workouts:
+  = @transaction.workouts
+%p
+  %b Rate
+  = @transaction.rate
+%p
+  %b Workouts used:
+  = @transaction.workouts_used
+
+= link_to 'Edit', edit_transaction_path(@transaction)
+\|
+= link_to 'Back', transactions_path

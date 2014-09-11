@@ -1,0 +1,8 @@
+.row
+  .small-6.small-centered.columns.text-center
+    %h1 New transaction
+
+= render 'form'
+.row
+  .small-6.small-centered.columns.text-center
+    = link_to 'Back', gym_member_path(@gym,@member)

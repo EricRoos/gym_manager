@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member_id: 
+  balance: 1.5
+  workouts: 1
+  workouts_used: 1
+
+two:
+  member_id: 
+  balance: 1.5
+  workouts: 1
+  workouts_used: 1
