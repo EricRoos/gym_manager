@@ -1,7 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
-  before_action :set_gym, only: [:new,:create,:destroy,:edit]
-  before_action :set_member, only: [:new,:create,:destroy,:edit]
+  before_action :set_gym_member
 
   # GET /transactions
   # GET /transactions.json
@@ -46,7 +45,7 @@ class TransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
+        format.html { redirect_to gym_member_path(@gym,@member), notice: 'Transaction was successfully updated.' }
         format.json { render :show, status: :ok, location: @transaction }
       else
         format.html { render :edit }
@@ -72,11 +71,9 @@ class TransactionsController < ApplicationController
       
     end
 
-    def set_gym
-      @gym = Gym.find(params[:gym_id])
-    end
-    def set_member
-      @member = Member.find(params[:gym_id])
+    def set_gym_member
+      @member = Member.includes(:gym).find(params[:member_id])
+      @gym = @member.gym
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params

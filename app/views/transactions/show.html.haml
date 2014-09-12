@@ -2,7 +2,7 @@
 
 %p
   %b Member:
-  = @transaction.member
+  = @transaction.member.email
 %p
   %b Balance:
   = @transaction.balance
@@ -16,6 +16,6 @@
   %b Workouts used:
   = @transaction.workouts_used
 
-= link_to 'Edit', edit_transaction_path(@transaction)
+= link_to 'Edit', edit_gym_member_transaction_path(@gym,@member,@transaction)
 \|
-= link_to 'Back', transactions_path
+= link_to 'Back', gym_member_path(@gym,@member)
