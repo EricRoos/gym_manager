@@ -1,7 +1,7 @@
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
- require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
+require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 # Basic settings:
@@ -39,6 +39,7 @@ end
 # For Rails apps, we'll make some of the shared paths that are shared between
 # all releases.
 task :setup => :environment do
+  queue %[/bin/bash --login]
   queue! %[export PATH=$PATH:/usr/local/rvm/rubies/ruby-2.1.2/bin/ruby]
   queue! %[source ~/.bashrc]
   queue! %[rvm rvmrc load]
