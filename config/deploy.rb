@@ -38,6 +38,7 @@ end
 # For Rails apps, we'll make some of the shared paths that are shared between
 # all releases.
 task :setup => :environment do
+  queue! %[rvm use 2.1.2]
   queue! %[mkdir -p "#{deploy_to}/shared/log"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
 
