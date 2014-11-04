@@ -51,5 +51,5 @@ production:
   <<: *default
   adapter: mysql
   database: test_project_production
-  username: test_project
-  password: <%= ENV['TEST_PROJECT_DATABASE_PASSWORD'] %>
+  username: rails
+  password: 12345678
