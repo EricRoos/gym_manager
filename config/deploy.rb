@@ -31,7 +31,7 @@ task :environment do
   #invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  #invoke :'rvm:use[ruby-1.9.3-p125@default]'
+  #invoke :'rvm:use[ruby-2.1.2]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -53,6 +53,7 @@ task :deploy => :environment do
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
+    invoke :'rvm:use[ruby-2.1.2]'
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
