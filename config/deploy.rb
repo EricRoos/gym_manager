@@ -28,7 +28,7 @@ set :user, 'eric'    # Username in the server to SSH to.
 task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .rbenv-version to your repository.
-  #invoke :'rbenv:load'
+  invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
   #invoke :'rvm:use[ruby-2.1.2]'
@@ -38,7 +38,6 @@ end
 # For Rails apps, we'll make some of the shared paths that are shared between
 # all releases.
 task :setup => :environment do
-  queue! %[rvm use 2.1.2]
   queue! %[mkdir -p "#{deploy_to}/shared/log"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
 
