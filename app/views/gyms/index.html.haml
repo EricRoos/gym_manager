@@ -1,5 +1,9 @@
-%div.row
-  %h1 Listing gyms
+.row
+  %ul.small-block-grid-3
+    - @gyms.each do |gym|
+      %li
+        .panel.text-center
+          %h2= gym.name
 
   %table
     %tr

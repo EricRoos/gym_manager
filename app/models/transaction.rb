@@ -1,4 +1,5 @@
 class Transaction < ActiveRecord::Base
+  include EventTracker
   belongs_to :member
 
   before_save :update_balance

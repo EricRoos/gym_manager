@@ -6,6 +6,8 @@ gem 'rails', '4.1.5'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 gem 'mysql'
+gem 'mina'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -14,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml'
 gem 'haml-rails'
+gem 'rest-client'
 gem 'rails_12factor', group: :production
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
