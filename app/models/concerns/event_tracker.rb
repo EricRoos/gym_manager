@@ -6,6 +6,6 @@ module EventTracker
   end
 
   def track_save
-    EventLogger.track_resource self.class,self.id,"save"
+#    EventLogger.track_resource self.class,self.id,"save"
   end
 end
