@@ -1,3 +1,5 @@
+#!/usr/local/rvm/rubies/ruby-2.1.2/bin/ruby
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
