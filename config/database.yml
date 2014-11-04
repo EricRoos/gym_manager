@@ -53,3 +53,4 @@ production:
   database: test_project_production
   username: rails
   password: 12345678
+  socket: /var/run/mysqld/mysqld.sock
