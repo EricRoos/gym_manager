@@ -25,10 +25,11 @@ set :user, 'eric'    # Username in the server to SSH to.
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
+set :rvm_path, '/usr/local/rvm/bin/rvm'
 task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .rbenv-version to your repository.
-  invoke :'rbenv:load'
+  #invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
   #invoke :'rvm:use[ruby-2.1.2]'
