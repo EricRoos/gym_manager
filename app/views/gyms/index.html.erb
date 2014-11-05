@@ -7,7 +7,8 @@
 <h5 class="subheader">
   Select a gym to manage.
 </h5>
-</div><a href="http://foundation.zurb.com/templates/store.html#">
+</div>
+<a href="http://foundation.zurb.com/templates/store.html#">
 <div class="panel callout radius">
 <h6><%= @gyms.size %> gym(s) </h6>
 </div></a>
@@ -20,7 +21,7 @@
       <img src="http://placehold.it/250x250">
       <div class="panel">
         <h5><%= link_to gym.name, gym %></h5>
-        <h6 class="subheader"><%= gym.members.count %> Member(s)</h6>
+        <h6 class="subheader"><%= gym.members.count %> Member(s) <%= link_to ( fa_stacked_icon "plus" ), new_gym_member_path(gym) %> /h6>
       </div>
     </div>
   <% end %>
