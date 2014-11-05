@@ -1,0 +1,71 @@
+<div class="row">
+ 
+<div class="large-4 small-12 columns">
+<img src="http://placehold.it/500x500">
+<div class="hide-for-small panel">
+<h3><%= @member.name %></h3>
+<h5 class="subheader">
+  Member of <%= @member.gym.name %>
+</h5>
+</div></div> 
+ 
+<div class="large-8 columns">
+  <div class="row">
+  <% transaction_list = @member.transactions %>
+  <% transaction_list = transaction_list.to_a.prepend Transaction.new %>
+  <% transaction_list.each do |transaction| %>
+    <% is_real = transaction.id.present? %>
+    <div class="large-4 small-6 columns">
+      <% if is_real %>
+        <%= image_tag "http://placehold.it/250x250&text=#{transaction.workouts_used}/#{transaction.workouts}" %>
+      <% else %>
+        <%= link_to (image_tag "http://placehold.it/250x250&text=New%20Transaction"), new_gym_member_transaction_path(@member.gym,@member) %>
+      <% end %>
+      <div class="panel">
+        <% if is_real %>
+          <h5>Balance: $<%= transaction.try(&:balance) %></h5>
+          <ul class="small-block-grid-3">
+            <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), new_gym_member_transaction_path(@member.gym,@member) %> </li>
+            <li class="text-center"> <%= fa_icon "fw" %> </li>
+            <li class="text-center"> <%= fa_icon "fw" %> </li>
+          </ul>
+        <% else %>
+          <h5>Add</h5>
+          <ul class="small-block-grid-3">
+            <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), new_gym_member_transaction_path(@member.gym,@member) %> </li>
+            <li class="text-center"> <%= fa_icon "fw" %> </li>
+            <li class="text-center"> <%= fa_icon "fw" %> </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div> 
+ 
+<footer class="row">
+<div class="large-12 columns">
+<hr>
+<div class="row">
+<div class="large-6 columns">
+<p>© Copyright no one at all. Go to town.</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li>
+<a href="http://foundation.zurb.com/templates/store.html#">Link 1</a>
+</li>
+<li>
+<a href="http://foundation.zurb.com/templates/store.html#">Link 2</a>
+</li>
+<li>
+<a href="http://foundation.zurb.com/templates/store.html#">Link 3</a>
+</li>
+<li>
+<a href="http://foundation.zurb.com/templates/store.html#">Link 4</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</footer> 
