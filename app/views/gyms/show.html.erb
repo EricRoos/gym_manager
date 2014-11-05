@@ -34,9 +34,9 @@
             <li class="text-center"> <%= link_to (fa_stacked_icon "trash", base: "square-o"), gym_member_path(@gym,member), method: :delete, :data => { confirm: "Are you sure you want to delete?"} %> </li>
           </ul>
         <% else %>
-          <h5>Add Member</h5>
+          <h5>Add</h5>
           <ul class="small-block-grid-3">
-            <li class="text-center"> <%= fa_icon "fw" %> </li>
+            <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), new_gym_member_path(@gym) %> </li>
             <li class="text-center"> <%= fa_icon "fw" %> </li>
             <li class="text-center"> <%= fa_icon "fw" %> </li>
           </ul>
