@@ -31,7 +31,11 @@
         <% if is_real %>
           <h5>Balance: $<%= transaction.try(&:balance) %></h5>
           <ul class="small-block-grid-3">
-            <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), use_workout_gym_member_transaction_path(@member.gym,@member,transaction), method: :post %> </li>
+            <% if transaction.has_workouts_left? %>
+              <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), use_workout_gym_member_transaction_path(@member.gym,@member,transaction), method: :post %> </li>
+            <% else %>
+              <li class="text-center"> <%= fa_stacked_icon "plus", base: "square-o" %> </li>
+            <% end %>
             <li class="text-center"> <%= link_to (fa_stacked_icon "dollar", base: "square-o"), edit_gym_member_transaction_path(@member.gym,@member,transaction) %> </li>
             <li class="text-center"> <%= link_to (fa_stacked_icon "pencil", base: "square-o"), edit_gym_member_transaction_path(@member.gym,@member,transaction) %> </li>
           </ul>

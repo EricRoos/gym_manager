@@ -7,9 +7,13 @@ class Transaction < ActiveRecord::Base
   end
 
   def use_workout!
-    if workouts_used < workouts
+    if has_workouts_left?
       self.workouts_used = self.workouts_used + 1
     end
     self.save
+  end
+
+  def has_workouts_left?
+    workouts_used < workouts
   end
 end
