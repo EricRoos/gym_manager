@@ -1,7 +1,4 @@
-- if @member.blank?
-  - path = gym_member_path(@gym,@member)
-- else
-  - path = members_path
+- path = gym_member_path(@gym,@member)
 
 = form_for @member, :url => path  do |f|
   - if @member.errors.any?
