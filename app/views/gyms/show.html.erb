@@ -15,15 +15,32 @@
  
 <div class="large-8 columns">
   <div class="row">
-  <% @gym.members.each do |member| %>
+  <% member_list = @gym.members %>
+  <% member_list = member_list.to_a.prepend Member.new %>
+  <% member_list.each do |member| %>
+    <% is_real = member.id.present? %>
     <div class="large-4 small-6 columns">
-      <img src="http://placehold.it/250x250">
+      <% if is_real %>
+        <%= link_to (image_tag "http://placehold.it/250x250"), gym_member_path(@gym,member) %>
+      <% else %>
+        <%= link_to (image_tag "http://placehold.it/250x250&text=Add%20Member"), new_gym_member_path(@gym) %>
+      <% end %>
       <div class="panel">
-        <h5><%= member.try(&:name) %></h5>
-        <ul class="small-block-grid-3">
-          <li class="text-center"> <%= link_to (fa_stacked_icon "usd", base: "square-o"), new_gym_member_transaction_path(@gym,member) %> </li>
-          <li class="text-center"> <%= link_to (fa_stacked_icon "pencil", base: "square-o"), gym_member_path(@gym,member) %> </li>
-          <li class="text-center"> <%= fa_stacked_icon "trash",base: "square-o" %> </li>
+        <% if is_real %>
+          <h5><%= member.try(&:name) %></h5>
+          <ul class="small-block-grid-3">
+            <li class="text-center"> <%= link_to (fa_stacked_icon "usd", base: "square-o"), new_gym_member_transaction_path(@gym,member) %> </li>
+            <li class="text-center"> <%= link_to (fa_stacked_icon "pencil", base: "square-o"), gym_member_path(@gym,member) %> </li>
+            <li class="text-center"> <%= fa_stacked_icon "trash",base: "square-o" %> </li>
+          </ul>
+        <% else %>
+          <h5>New member</h5>
+          <ul class="small-block-grid-3">
+            <li class="text-center"> <%= (fa_stacked_icon "usd", base: "square-o") %> </li>
+            <li class="text-center"> <%= (fa_stacked_icon "pencil", base: "square-o") %> </li>
+            <li class="text-center"> <%= (fa_stacked_icon "trash", base: "square-o") %> </li>
+          </ul>
+        <% end %>
       </div>
     </div>
   <% end %>
