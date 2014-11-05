@@ -22,7 +22,7 @@
         <h5><%= member.try(&:name) %></h5>
         <ul class="small-block-grid-3">
           <li class="text-center"> <%= link_to (fa_stacked_icon "usd", base: "square-o"), new_gym_member_transaction_path(@gym,member) %> </li>
-          <li class="text-center"> <%= fa_stacked_icon "plus", base: "square-o"%> </li>
+          <li class="text-center"> <%= link_to (fa_stacked_icon "pencil", base: "square-o"), gym_member_path(@gym,member) %> </li>
           <li class="text-center"> <%= fa_stacked_icon "trash",base: "square-o" %> </li>
       </div>
     </div>
