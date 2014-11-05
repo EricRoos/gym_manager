@@ -1,0 +1,80 @@
+<div class="row">
+ 
+<div class="large-4 small-12 columns">
+<img src="http://placehold.it/500x500">
+<div class="hide-for-small panel">
+<h3><%= @gym.name %> Members</h3>
+<h5 class="subheader">
+  Select a user to manage.
+</h5>
+</div><a href="http://foundation.zurb.com/templates/store.html#">
+<div class="panel callout radius">
+<h6><%= @gym.members.size %> member(s)</h6>
+</div></a>
+</div> 
+ 
+<div class="large-8 columns">
+  <div class="row">
+  <% @gym.members.each do |member| %>
+    <div class="large-4 small-6 columns">
+      <img src="http://placehold.it/250x250">
+      <div class="panel">
+        <h5><%= member.try(&:name) %></h5>
+        <ul class="small-block-grid-3">
+          <li class="text-center"> <%= fa_stacked_icon "usd", base: "square-o"%> </li>
+          <li class="text-center"> <%= fa_stacked_icon "plus", base: "square-o"%> </li>
+          <li class="text-center"> <%= fa_stacked_icon "trash",base: "square-o" %> </li>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div> 
+ 
+<footer class="row">
+<div class="large-12 columns">
+<hr>
+<div class="row">
+<div class="large-6 columns">
+<p>© Copyright no one at all. Go to town.</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li>
+<a href="http://foundation.zurb.com/templates/store.html#">Link 1</a>
+</li>
+<li>
+<a href="http://foundation.zurb.com/templates/store.html#">Link 2</a>
+</li>
+<li>
+<a href="http://foundation.zurb.com/templates/store.html#">Link 3</a>
+</li>
+<li>
+<a href="http://foundation.zurb.com/templates/store.html#">Link 4</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</footer> 
+</div>
+</div>
+<script>
+  document.write('<script src=js/vendor/' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script><script src="./gym_page_files/zepto.js"></script>
+<script src="./gym_page_files/jquery.js"></script>
+<script src="./gym_page_files/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+  </script>
+<script src="./gym_page_files/jquery(1).js"></script>
+<script src="./gym_page_files/foundation.js"></script>
+<script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+
+</body></html>
