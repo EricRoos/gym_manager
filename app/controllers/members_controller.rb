@@ -54,7 +54,7 @@ class MembersController < ApplicationController
     respond_to do |format|
       if @member.update(member_params)
         @gym = @member.gym
-        format.html { redirect_to gym_members_path(@gym,@member), notice: 'Member was successfully updated.' }
+        format.html { redirect_to gym_path(@gym), notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
       else
         format.html { render :edit }
