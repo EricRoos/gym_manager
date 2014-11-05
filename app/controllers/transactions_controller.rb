@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_transaction, only: [:show, :edit, :update, :destroy,:use_workout]
   before_action :set_gym_member
 
   # GET /transactions
@@ -8,6 +8,12 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
   end
 
+
+  def use_workout
+    @transaction.use_workout!
+    @transaction.save
+    redirect_to gym_member_path(@gym,@member)
+  end
   # GET /transactions/1
   # GET /transactions/1.json
   def show

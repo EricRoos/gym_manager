@@ -29,7 +29,7 @@
         <% if is_real %>
           <h5>Balance: $<%= transaction.try(&:balance) %></h5>
           <ul class="small-block-grid-3">
-            <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), new_gym_member_transaction_path(@member.gym,@member) %> </li>
+            <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), use_workout_gym_member_transaction_path(@member.gym,@member,transaction), method: :post %> </li>
             <li class="text-center"> <%= fa_icon "fw" %> </li>
             <li class="text-center"> <%= fa_icon "fw" %> </li>
           </ul>

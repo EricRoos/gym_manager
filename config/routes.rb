@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   resources :gyms do
     resources :members do
-      resources :transactions
+      resources :transactions do
+        member do
+          post :use_workout
+        end
+      end
     end
   end
 
