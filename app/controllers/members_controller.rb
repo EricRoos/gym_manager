@@ -12,7 +12,7 @@ class MembersController < ApplicationController
   # GET /members/1.json
   def show
     @gym = @member.gym
-    @transactions = @member.transactions
+    @transactions = @member.transactions.order(created_at: :desc)
   end
 
   # GET /members/new
