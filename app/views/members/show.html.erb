@@ -32,7 +32,7 @@
           <h5>Balance: $<%= transaction.try(&:balance) %></h5>
           <ul class="small-block-grid-3">
             <% if transaction.has_workouts_left? %>
-              <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), use_workout_gym_member_transaction_path(@member.gym,@member,transaction), method: :post, remote: true %> </li>
+              <li class="text-center" data-transaction-id=<%=transaction.id%>> <%= link_to (fa_stacked_icon "plus", base: "square-o"), use_workout_gym_member_transaction_path(@member.gym,@member,transaction), method: :post, remote: true %> </li>
             <% else %>
               <li class="text-center"> <%= fa_stacked_icon "plus", base: "square-o" %> </li>
             <% end %>
