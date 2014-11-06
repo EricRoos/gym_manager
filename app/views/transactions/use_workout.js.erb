@@ -1,4 +1,4 @@
-$('img[data-transaction-id="<%= @transaction.id %>"]').attr("src","http://placehold.it/250x250&text=<%= "#{@transaction.workouts_used}/#{@transaction.workouts}" %>");
+$('img[data-transaction-id="<%= @transaction.id %>"]').attr("src","http://placehold.it/250x250/cccccc/008cba&text=<%= "#{@transaction.workouts_used}/#{@transaction.workouts}" %>");
 <% if @transaction.workouts_used >= @transaction.workouts %>
   element = $('li[data-transaction-id="<%= @transaction.id %>"]')
   element.html(element.find("a").html());
