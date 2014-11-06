@@ -1,7 +1,7 @@
 <div class="row">
  
-<div class="large-4 small-12 columns">
-  <img src="http://placehold.it/500x500">
+<div class="large-4 medium-6 small-12 columns">
+  <img src="http://placehold.it/500x500" width="100%">
   <div class="hide-for-small panel">
     <h3><%= @member.name %></h3>
     <h5 class="subheader"></h5>
@@ -15,17 +15,17 @@
   </a>
 </div> 
  
-<div class="large-8 columns">
+<div class="large-8 medium-6 columns">
   <div class="row">
   <% transaction_list = @member.transactions.order(created_at: :desc) %>
   <% transaction_list = transaction_list.to_a.prepend Transaction.new %>
   <% transaction_list.each do |transaction| %>
     <% is_real = transaction.id.present? %>
-    <div class="large-4 small-6 columns">
+    <div class="large-4 medium-4 small-6 columns">
       <% if is_real %>
-        <%= image_tag "http://placehold.it/250x250&text=#{transaction.workouts_used}/#{transaction.workouts}", :data => {:transaction_id => transaction.id} %>
+        <%= image_tag "http://placehold.it/250x250&text=#{transaction.workouts_used}/#{transaction.workouts}", :data => {:transaction_id => transaction.id}, width: "100%" %>
       <% else %>
-        <%= link_to (image_tag "http://placehold.it/250x250&text=New%20Transaction"), new_gym_member_transaction_path(@member.gym,@member) %>
+        <%= link_to (image_tag "http://placehold.it/250x250&text=New%20Transaction", width: "100%"), new_gym_member_transaction_path(@member.gym,@member)  %>
       <% end %>
       <div class="panel">
         <% if is_real %>
