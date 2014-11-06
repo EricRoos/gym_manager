@@ -12,7 +12,9 @@ class TransactionsController < ApplicationController
   def use_workout
     @transaction.use_workout!
     @transaction.save
-    redirect_to gym_member_path(@gym,@member)
+    respond_to do |format|
+      format.js
+    end
   end
   # GET /transactions/1
   # GET /transactions/1.json

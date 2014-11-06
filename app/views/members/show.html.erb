@@ -23,7 +23,7 @@
     <% is_real = transaction.id.present? %>
     <div class="large-4 small-6 columns">
       <% if is_real %>
-        <%= image_tag "http://placehold.it/250x250&text=#{transaction.workouts_used}/#{transaction.workouts}" %>
+        <%= image_tag "http://placehold.it/250x250&text=#{transaction.workouts_used}/#{transaction.workouts}", :data => {:transaction_id => transaction.id} %>
       <% else %>
         <%= link_to (image_tag "http://placehold.it/250x250&text=New%20Transaction"), new_gym_member_transaction_path(@member.gym,@member) %>
       <% end %>
@@ -32,7 +32,7 @@
           <h5>Balance: $<%= transaction.try(&:balance) %></h5>
           <ul class="small-block-grid-3">
             <% if transaction.has_workouts_left? %>
-              <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), use_workout_gym_member_transaction_path(@member.gym,@member,transaction), method: :post %> </li>
+              <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), use_workout_gym_member_transaction_path(@member.gym,@member,transaction), method: :post, remote: true %> </li>
             <% else %>
               <li class="text-center"> <%= fa_stacked_icon "plus", base: "square-o" %> </li>
             <% end %>
