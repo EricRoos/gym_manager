@@ -25,7 +25,7 @@
       <% if is_real %>
         <%= image_tag "http://placehold.it/250x250&text=#{transaction.workouts_used}/#{transaction.workouts}", :data => {:transaction_id => transaction.id}, width: "100%" %>
       <% else %>
-        <%= link_to (image_tag "http://placehold.it/250x250&text=New%20Transaction", width: "100%"), new_gym_member_transaction_path(@member.gym,@member)  %>
+        <a href="#" data-reveal-id="transactionModal"><%= image_tag "http://placehold.it/250x250&text=New%20Transaction", width: "100%" %></a>
       <% end %>
       <div class="panel">
         <% if is_real %>
@@ -43,7 +43,7 @@
           <h5>Add Transaction</h5>
           <ul class="small-block-grid-3">
             <li class="text-center"> <%= fa_icon "fw" %> </li>
-            <li class="text-center"> <%= link_to (fa_stacked_icon "plus", base: "square-o"), new_gym_member_transaction_path(@member.gym,@member) %> </li>
+            <li><a href="#" data-reveal-id="transactionModal"><%= fa_stacked_icon "plus", base: "square-o" %></a></li>
             <li class="text-center"> <%= fa_icon "fw" %> </li>
           </ul>
         <% end %>
@@ -79,3 +79,8 @@
 </div>
 </div>
 </footer> 
+<div id="transactionModal" class="reveal-modal" data-reveal>
+  <% @transaction = Transaction.new %>
+  <%= render "transactions/form" %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
