@@ -1,4 +1,9 @@
-- path = gym_member_path(@gym,@member)
+- if @member.id.present?
+  - path = gym_member_path(@gym,@member)
+- else
+  - path = members_path
+
+
 
 = form_for @member, :url => path  do |f|
   - if @member.errors.any?
