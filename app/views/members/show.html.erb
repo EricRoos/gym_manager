@@ -23,7 +23,7 @@
     <% is_real = transaction.id.present? %>
     <div class="large-4 medium-4 small-6 columns">
       <% if is_real %>
-        <%= image_tag "http://placehold.it/250x250&text=#{transaction.workouts_used}/#{transaction.workouts}", :data => {:transaction_id => transaction.id}, width: "100%" %>
+        <%= image_tag "http://placehold.it/250x250/cccccc/008cba&text=#{transaction.workouts_used}/#{transaction.workouts}", :data => {:transaction_id => transaction.id}, width: "100%" %>
       <% else %>
         <a href="#" data-reveal-id="transactionModal"><%= image_tag "http://placehold.it/250x250&text=New%20Transaction", width: "100%" %></a>
       <% end %>
