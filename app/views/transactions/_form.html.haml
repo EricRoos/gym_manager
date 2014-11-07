@@ -12,16 +12,16 @@
           %li= msg
 
   .row
-    .small-6.small-centered.columns.text-center
+    .large-6.small-12.small-centered.columns.text-center
       = f.hidden_field :member_id, :value => @member.id
   .row
-    .small-6.small-centered.columns.text-center
+    .large-6.small-12.small-centered.columns.text-center
       = f.label :rate
       = f.text_field :rate, :placeholder => :rate
   .row
-    .small-6.small-centered.columns.text-center
+    .large-6.small-12.small-centered.columns.text-center
       = f.label :workouts
       = f.number_field :workouts, :placeholder => :workouts
   .row
-    .small-6.small-centered.columns.text-center
+    .larrge-6.small-12.small-centered.columns.text-center
       = f.submit 'Save', :class => "button expand"
