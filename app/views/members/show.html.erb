@@ -79,7 +79,8 @@
 </div>
 </div>
 </footer> 
-<div id="transactionModal" class="reveal-modal" data-reveal>
+<div id="transactionModal" class="reveal-modal text-center" data-reveal>
+  <h3>New Transaction</h3>
   <% @transaction = Transaction.new %>
   <%= render "transactions/form" %>
   <a class="close-reveal-modal">&#215;</a>
