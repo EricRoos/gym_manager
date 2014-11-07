@@ -14,14 +14,17 @@
   .row
     .large-6.small-12.small-centered.columns.text-center
       = f.hidden_field :member_id, :value => @member.id
-  .row
-    .large-6.small-12.small-centered.columns.text-center
-      = f.label :rate
+  .row.collapse
+    .large-1.small-2.large-push-4.columns
+      %span.prefix
+        = fa_icon "usd"
+    .large-3.small-10.large-pull-4.columns
       = f.text_field :rate, :placeholder => :rate
+  .row.collapse
+    .large-1.small-2.large-push-4.columns
+      %span.prefix #
+    .large-3.small-10.large-pull-4.columns
+      = f.text_field :workouts, :placeholder => :rate
   .row
-    .large-6.small-12.small-centered.columns.text-center
-      = f.label :workouts
-      = f.number_field :workouts, :placeholder => :workouts
-  .row
-    .large-6.small-12.small-centered.columns.text-center
+    .large-5.small-12.small-centered.columns.text-center
       = f.submit 'Save', :class => "button expand"
